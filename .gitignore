@@ -1,0 +1,19 @@
+# Pretrained models
+pretrained/*.t7
+
+# Training results
+results/
+
+# Local cache files that should not be tracked
+gen/
+matlab/test
+matlab/visualization
+
+# Compiled files
+matlab/toolbox_nyu_depth_v2/*.mexa64
+libnccl.so
+
+# System files
+.DS_Store
+*~
+.fuse_*
