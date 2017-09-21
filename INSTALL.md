@@ -69,23 +69,21 @@ cd cudnn.torch; luarocks make
 ```bash
 sudo apt-get update
 sudo apt-get install -y libhdf5-serial-dev hdf5-tools
-git clone https://github.com/deepmind/torch-hdf5
+git clone https://github.com/davek44/torch-hdf5.git
 cd torch-hdf5
 luarocks make
 ```
 
 ## Download our NYU-Depth-V2 and KITTI datasets
-The RGB and depth images have been properly preprocessed (including synchronization and projection of depths to RGB image planes) for both NYU-Depth-V2 and KITTI datasets. They are stored in HDF5 formats, with each file containing one RGB-depth image pair.
-
-1. Download the datasets from (available soon)?
-
-2. Extract the training and test data:
-  ```bash
-  mkdir train && mv ILSVRC2012_img_train.tar train/ && cd train
-  tar -xvf ILSVRC2012_img_train.tar && rm -f ILSVRC2012_img_train.tar
-  find . -name "*.tar" | while read NAME ; do mkdir -p "${NAME%.tar}"; tar -xvf "${NAME}" -C "${NAME%.tar}"; rm -f "${NAME}"; done
-  cd ..
-  ```
+The RGB and depth images have been properly preprocessed (including synchronization and projection of depths to RGB image planes) for both NYU-Depth-V2 and KITTI datasets. They are stored in HDF5 formats, with each file containing one RGB-depth image pair. This might take an hour or so.
+```bash
+cd data
+wget http://datasets.lids.mit.edu/sparse-to-dense/data/kitti.tar.gz
+tar -xvf kitti.tar.gz && rm -f kitti.tar.gz
+wget http://datasets.lids.mit.edu/sparse-to-dense/data/nyudepthv2.tar.gz 
+tar -xvf nyudepthv2.tar.gz && rm -f nyudepthv2.tar.gz 
+cd ..
+```
 
 ## Download Sparse-to-Depth 
 ```bash
