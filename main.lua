@@ -50,7 +50,7 @@ if opt.testOnly then
    require 'modules/Unpool'
 
    -- Load trained model
-   model = torch.load(opt.bestmodelPath)
+   model = torch.load(opt.bestmodelPath):type(opt.tensorType)
 
    -- Set batchsize to be 1
    print('=> Test-only: set batchSize=1.')

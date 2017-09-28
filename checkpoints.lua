@@ -10,6 +10,22 @@
 
 local checkpoint = {}
 
+local function deepCopy(tbl)
+   -- creates a copy of a network with new modules and the same tensors
+   local copy = {}
+   for k, v in pairs(tbl) do
+      if type(v) == 'table' then
+         copy[k] = deepCopy(v)
+      else
+         copy[k] = v
+      end
+   end
+   if torch.typename(tbl) then
+      torch.setmetatable(copy, torch.typename(tbl))
+   end
+   return copy
+end
+
 function checkpoint.latest(opt)
    checkpoint.saveDir = opt.saveDir
 
@@ -33,6 +49,9 @@ function checkpoint.save(epoch, model, optimState, bestModel)
    if torch.type(model) == 'nn.DataParallelTable' then
       model = model:get(1)
    end
+
+   -- create a clean copy on the CPU without modifying the original network
+   model = deepCopy(model):float():clearState()
 
    local modelFile = paths.concat(checkpoint.saveDir, 'model_' .. epoch .. '.t7')
    local optimFile = paths.concat(checkpoint.saveDir, 'optimState_' .. epoch .. '.t7')
@@ -62,7 +81,6 @@ function checkpoint.save(epoch, model, optimState, bestModel)
       if bestModel then
          local bestModelFile = paths.concat(checkpoint.saveDir, 'model_best.t7')
          print('=> Saving best model to ' .. bestModelFile .. '. Do not interrupt..')
-         -- torch.save(bestModelFile, model) -- too slow
          os.execute('cp ' .. modelFile .. ' ' .. bestModelFile)
          print('=> Saving best model completes')
       end

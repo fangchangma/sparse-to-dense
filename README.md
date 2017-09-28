@@ -44,7 +44,12 @@ See the [installation instructions](INSTALL.md) for a step-by-step guide.
 	cd ..
 	```
 - Download the networks pretrained on ImageNet datasets. In particular, use [ResNet-50](https://d2j0dndfm35trm.cloudfront.net/resnet-50.t7) for the NYU Depth V2 dataset, and [ResNet-18](https://d2j0dndfm35trm.cloudfront.net/resnet-18.t7) for the KITTI dataset. Place them under the `pretrained` folder.
-
+	```bash
+	cd pretrained
+	wget https://d2j0dndfm35trm.cloudfront.net/resnet-50.t7
+	wget https://d2j0dndfm35trm.cloudfront.net/resnet-18.t7
+	cd ..
+	```
 ## Training
 The training scripts come with several options, which can be listed with the `--help` flag.
 ```bash
@@ -84,8 +89,13 @@ th main.lua -testOnly true -dataset kitti -inputType rgbd -nSample 100 -criterio
 ```
 
 ## Trained Models
-
-Trained models will be provided soon.
+Download our trained models at http://datasets.lids.mit.edu/sparse-to-dense/results/ to the `results` folder. For instance,
+```bash
+cd results
+wget -r -np -nH --cut-dirs=2 --reject "index.html*" http://datasets.lids.mit.edu/sparse-to-dense/results/nyudepthv2.input=rgbd.nsample=200.rep=linear.encoder=conv.decoder=upproj.criterion=l1.lr=0.01.bs=16.pretrained=true/
+cd ..
+```
+More trained models will be released.
 
 ## Benchmark
 
