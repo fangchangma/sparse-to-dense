@@ -20,11 +20,12 @@ This repo implements the training and testing of deep regression neural networks
 See the [installation instructions](INSTALL.md) for a step-by-step guide.
 - Install [Torch](http://torch.ch/docs/getting-started.html) on a machine with CUDA GPU. 
 - Install [cuDNN](https://developer.nvidia.com/cudnn)(v4 or above) and the Torch [cuDNN bindings](https://github.com/soumith/cudnn.torch/tree/R4)
-- If you already have both Torch and cuDNN installed, update `nn`, `cunn`, and `cudnn` packages.
+- If you already have both Torch and cuDNN installed, update packages and install dependencies.
 	```bash
 	luarocks install nn
 	luarocks install cunn
 	luarocks install cudnn
+	luarocks install optnet
 	```
 - Install the [HDF5](https://en.wikipedia.org/wiki/Hierarchical_Data_Format) format libraries. Files in our pre-processed datasets are in HDF5 formats.
 	```bash
