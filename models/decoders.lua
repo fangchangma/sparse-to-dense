@@ -29,7 +29,7 @@ function decoders.deConv2(nInputPlane, nOutputPlane)
    local kW, kH = 2, 2
    local dW, dH = 2, 2
    local padW, padH = 0, 0
-   local adjW, adj = 0, 0
+   local adjW, adjH = 0, 0
    -- formula:
    --  owidth  = (width  - 1) * dW - 2*padW + kW + adjW = 2 * width
    --  oheight = (height - 1) * dH - 2*padH + kH + adjH = 2 * height
@@ -46,7 +46,7 @@ function decoders.deConv3(nInputPlane, nOutputPlane)
    local kW, kH = 3, 3
    local dW, dH = 2, 2
    local padW, padH = 1, 1
-   local adjW, adj = 1, 1
+   local adjW, adjH = 1, 1
    -- formula:
    --  owidth  = (width  - 1) * dW - 2*padW + kW + adjW = 2 * width
    --  oheight = (height - 1) * dH - 2*padH + kH + adjH = 2 * height

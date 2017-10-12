@@ -1,11 +1,16 @@
 Sparse-to-Dense
 ============================
 
-This repo implements the training and testing of deep regression neural networks for ["Sparse-to-Dense: Depth Prediction from Sparse Depth Samples and a Single Image"](https://arxiv.org/abs/1709.07492) by [Fangchang Ma](http://www.mit.edu/~fcma) and [Sertac Karaman](http://karaman.mit.edu/) at MIT. A video demonstration is available on [YouTube](https://youtu.be/vNIIT_M7x7Y).
+This repo implements in Torch the training and testing of deep regression neural networks for ["Sparse-to-Dense: Depth Prediction from Sparse Depth Samples and a Single Image"](https://arxiv.org/abs/1709.07492) by [Fangchang Ma](http://www.mit.edu/~fcma) and [Sertac Karaman](http://karaman.mit.edu/) at MIT. A video demonstration is available on [YouTube](https://youtu.be/vNIIT_M7x7Y).
 <p align="center">
 	<img src="http://www.mit.edu/~fcma/images/ICRA2018.png" alt="photo not available" width="50%" height="50%">
 	<img src="https://j.gifs.com/Z4qDow.gif" alt="photo not available" height="50%">
 </p>
+
+This repo can be used for training and testing of 
+- RGB (or grayscale image) based depth prediction
+- sparse depth based depth prediction
+- RGBd (i.e., both RGB and sparse depth) based depth prediction
 
 ## Contents
 0. [Requirements](#requirements)
@@ -141,7 +146,7 @@ More trained models will be released.
 	Note: our networks are trained on the KITTI odometry dataset, using only sparse labels from laser measurements.
 
 ## Citation 
-If you use our code or method in your research, please cite:
+If you use our code or method in your work, please cite:
 
 	@article{Ma2017SparseToDense,
 	  title={Sparse-to-Dense: Depth Prediction from Sparse Depth Samples and a Single Image},
