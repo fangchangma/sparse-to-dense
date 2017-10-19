@@ -1,7 +1,7 @@
 Sparse-to-Dense
 ============================
 
-This repo implements in Torch the training and testing of deep regression neural networks for ["Sparse-to-Dense: Depth Prediction from Sparse Depth Samples and a Single Image"](https://arxiv.org/abs/1709.07492) by [Fangchang Ma](http://www.mit.edu/~fcma) and [Sertac Karaman](http://karaman.mit.edu/) at MIT. A video demonstration is available on [YouTube](https://youtu.be/vNIIT_M7x7Y).
+This repo implements the training and testing of deep regression neural networks for ["Sparse-to-Dense: Depth Prediction from Sparse Depth Samples and a Single Image"](https://arxiv.org/pdf/1709.07492.pdf) by [Fangchang Ma](http://www.mit.edu/~fcma) and [Sertac Karaman](http://karaman.mit.edu/) at MIT. A video demonstration is available on [YouTube](https://youtu.be/vNIIT_M7x7Y). 
 <p align="center">
 	<img src="http://www.mit.edu/~fcma/images/ICRA2018.png" alt="photo not available" width="50%" height="50%">
 	<img src="https://j.gifs.com/Z4qDow.gif" alt="photo not available" height="50%">
@@ -12,6 +12,8 @@ This repo can be used for training and testing of
 - sparse depth based depth prediction
 - RGBd (i.e., both RGB and sparse depth) based depth prediction
 
+Currently we offer only an implementation in [Torch](http://torch.ch/docs/getting-started.html). However, a [PyTorch](http://pytorch.org/) version will also be released soon. 
+
 ## Contents
 0. [Requirements](#requirements)
 0. [Training](#training)
@@ -19,7 +21,6 @@ This repo can be used for training and testing of
 0. [Trained Models](#trained-models)
 0. [Benchmark](#benchmark)
 0. [Citation](#citation)
-
 
 ## Requirements
 See the [installation instructions](INSTALL.md) for a step-by-step guide.
@@ -39,6 +40,7 @@ See the [installation instructions](INSTALL.md) for a step-by-step guide.
 	git clone https://github.com/davek44/torch-hdf5.git
 	cd torch-hdf5
 	luarocks make
+	cd ..
 	```
 - Download the preprocessed [NYU Depth V2](http://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html) and/or [KITTI](http://www.cvlibs.net/datasets/kitti/eval_odometry.php) datasets in HDF5 formats and place them under the `data` folder. The downloading process might take an hour or so. The NYU dataset requires 32G of storage space, and KITTI requires 81G.
 	```bash
@@ -86,7 +88,6 @@ Training results will be saved under the `results` folder.
 | encoderType   | conv, depthsep, channeldrop  		| depthsep: depthwise separable convolution | 
 | decoderType   | upproj, upconv, deconv2, deconv3  | deconv_n: transposed convolution with kernel size n-by-n | 
 
-Please refer to "Deeper depth prediction with fully convolutional residual networks" for more details on `upproj` and `upconv` decoder modules.
 
 ## Testing
 To test the performance of a trained model, simply run main.lua with the `-testOnly true` option, along with other model options. For instance,

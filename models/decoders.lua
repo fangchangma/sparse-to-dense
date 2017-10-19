@@ -107,38 +107,4 @@ function decoders.upProj(nInputPlane, nOutputPlane, iheight, iwidth)
    return model
 end
 
-
-function decoders.upSample(nInputPlane, nOutputPlane)
-   local s = nn.Sequential()
-
-   -- transpose convolution: kernel size = 3×3, reception field = 3×3
-   local k1, d1, pad1, adj1 = 3, 2, 1, 1
-   s:add(DeConvolution(nInputPlane, nOutputPlane, k1, k1, d1, d1, pad1, pad1, adj1, adj1))
-   s:add(SBatchNorm(nOutputPlane))
-   s:add(ReLU(true))
-
-   -- dilated convolution: kernel size = 3×3, reception field = 5×5
-   local k2, d2, pad2, dilation2 = 3, 1, 2, 2
-   s:add(DilatedConvolution(nOutputPlane, nOutputPlane, k2, k2, d2, d2, pad2, pad2, dilation2, dilation2))
-   s:add(SBatchNorm(nOutputPlane))
-
-   -- shortcut branch
-   local shortcut = nn.Sequential()
-   shortcut:add(nn.SpatialUpSamplingBilinear(2))
-   -- local k3, d3, pad3, dilation3 = 3, 1, 2, 2
-   -- shortcut:add(DilatedConvolution(nInputPlane, nOutputPlane, k3, d3, pad3, dilation3))
-   local k3, d3, pad3 = 3, 1, 1
-   shortcut:add(Convolution(nInputPlane, nOutputPlane, k3, d3, pad3))
-   shortcut:add(SBatchNorm(nOutputPlane))
-
-   local model = nn.Sequential()
-   model:add(nn.ConcatTable()
-      :add(s)
-      :add(short))
-   model:add(nn.CAddTable(true))
-   model:add(ReLU(true))
-
-   return model
-end
-
 return decoders
