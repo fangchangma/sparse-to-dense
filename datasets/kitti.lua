@@ -46,6 +46,8 @@ function KittiDataset.preprocess(rgbImage, depthImage, split)
    --    color jitter
    --    horizontal flip with probablity of 0.5
 
+   rgbImage = rgbImage / 255
+   
    if split == 'train' then 
       local s = torch.uniform(1.0, 1.5)   
       local degree = torch.uniform(-5.0, 5.0)
