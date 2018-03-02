@@ -12,7 +12,7 @@ This repo can be used for training and testing of
 - sparse depth based depth prediction
 - RGBd (i.e., both RGB and sparse depth) based depth prediction
 
-Currently we offer only an implementation in [Torch](http://torch.ch/docs/getting-started.html). However, a [PyTorch](http://pytorch.org/) version will also be released soon. 
+This repo offer only the original implementation of the paper in [Torch](http://torch.ch/docs/getting-started.html). A similar [PyTorch](http://pytorch.org/) version will be released [here](https://github.com/fangchangma/sparse-to-dense.pytorch). 
 
 ## Contents
 0. [Requirements](#requirements)
