@@ -1,7 +1,7 @@
 Sparse-to-Dense
 ============================
 
-This repo implements the training and testing of deep regression neural networks for ["Sparse-to-Dense: Depth Prediction from Sparse Depth Samples and a Single Image"](https://arxiv.org/pdf/1709.07492.pdf) by [Fangchang Ma](http://www.mit.edu/~fcma) and [Sertac Karaman](http://karaman.mit.edu/) at MIT. A video demonstration is available on [YouTube](https://youtu.be/vNIIT_M7x7Y). 
+This repo implements the training and testing of deep regression neural networks for ["Sparse-to-Dense: Depth Prediction from Sparse Depth Samples and a Single Image"](https://arxiv.org/pdf/1709.07492.pdf) by [Fangchang Ma](http://www.mit.edu/~fcma) and [Sertac Karaman](http://karaman.mit.edu/) at MIT. A video demonstration is available on [YouTube](https://youtu.be/vNIIT_M7x7Y). This repo offers the original implementation of the paper in [Torch](http://torch.ch/docs/getting-started.html). The [PyTorch](http://pytorch.org/) version can be found [here](https://github.com/fangchangma/sparse-to-dense.pytorch). 
 <p align="center">
 	<img src="http://www.mit.edu/~fcma/images/ICRA2018.png" alt="photo not available" width="50%" height="50%">
 	<img src="https://j.gifs.com/Z4qDow.gif" alt="photo not available" height="50%">
@@ -11,8 +11,6 @@ This repo can be used for training and testing of
 - RGB (or grayscale image) based depth prediction
 - sparse depth based depth prediction
 - RGBd (i.e., both RGB and sparse depth) based depth prediction
-
-This repo offer only the original implementation of the paper in [Torch](http://torch.ch/docs/getting-started.html). A similar [PyTorch](http://pytorch.org/) version will be released [here](https://github.com/fangchangma/sparse-to-dense.pytorch). 
 
 ## Contents
 0. [Requirements](#requirements)
