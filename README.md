@@ -145,13 +145,19 @@ More trained models will be released.
 	Note: our networks are trained on the KITTI odometry dataset, using only sparse labels from laser measurements.
 
 ## Citation 
-If you use our code or method in your work, please cite:
+If you use our code or method in your work, please consider citing the following:
 
 	@article{Ma2017SparseToDense,
-	  title={Sparse-to-Dense: Depth Prediction from Sparse Depth Samples and a Single Image},
-	  author={Ma, Fangchang and Karaman, Sertac},
-	  journal={arXiv preprint arXiv:1709.07492},
-	  year={2017}
+		title={Sparse-to-Dense: Depth Prediction from Sparse Depth Samples and a Single Image},
+		author={Ma, Fangchang and Karaman, Sertac},
+		booktitle={ICRA},
+		year={2018}
+	}
+	@article{ma2018self,
+		title={Self-supervised Sparse-to-Dense: Self-supervised Depth Completion from LiDAR and Monocular Camera},
+		author={Ma, Fangchang and Cavalheiro, Guilherme Venturelli and Karaman, Sertac},
+		journal={arXiv preprint arXiv:1807.00275},
+		year={2018}
 	}
 
 Please direct any questions to [Fangchang Ma](http://www.mit.edu/~fcma) at fcma@mit.edu.
